@@ -1,38 +1,71 @@
+@import 'assets/css/colors.css';
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--white);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:focus {
+  outline: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-label-container {
+  margin-bottom: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-label {
+  font-size: 13px;
+  color: var(--formLabel);
+  text-transform: uppercase;
+  width: 100%;
+  padding-bottom: 11px;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-value {
+  font-weight: 600;
+  color: var(--value);
+  font-size: 14px;
+}
+
+.custom-title {
+  color: var(--grey3);
+  font-size: 15px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.custom-btn {
+  padding: 6px 12px;
+  border-radius: 2px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.custom-btn:disabled {
+  color: var(--black);
+  opacity: 0.5;
+  background: var(--grey5);
+  border-color: var(--grey4);
+  cursor: not-allowed;
+}
+
+.btn1 {
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn2 {
+  border: 1px solid var(--grey4);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.btn3 {
+  border: 1px solid var(--primary-color);
+  background-color: var(--white);
+  color: var(--primary-color);
 }

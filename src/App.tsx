@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ItemEditor from './components/itemeditor';
+import { MOCK_DATA } from './mockdata/Data';
+import { IFormItem } from './shared/interfaces/ItemEditor.interface';
 
 function App() {
+  const itemsList = JSON.parse(JSON.stringify(MOCK_DATA));
+  const title = 'Item Editor';
+  const handleSave = (items: IFormItem[]) => {
+    if (items.length > 0) {
+      console.log('Modified Items', items);
+      alert('Modified Items are received and can be seen in console');
+    }
+    if (items.length === 0) {
+      alert('No Items modified');
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ItemEditor items={itemsList} onSave={handleSave} title={title} />
     </div>
   );
 }

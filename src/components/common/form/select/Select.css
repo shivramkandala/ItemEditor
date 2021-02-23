@@ -1,0 +1,44 @@
+@import '../../../../assets/css/colors.css';
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 1px solid var(--grey1) !important;
+  background: var(--white);
+  background-image: none;
+  flex: 1;
+  padding: 0 1em;
+  color: var(--value);
+  cursor: pointer;
+}
+
+.custom-select {
+  position: relative;
+  display: flex;
+  height: 48px;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.custom-select::after {
+  content: '\25bc';
+  color: var(--grey4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 16px;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.custom-select:hover::after {
+  color: var(--grey4);
+}

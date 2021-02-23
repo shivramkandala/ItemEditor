@@ -1,0 +1,43 @@
+@import url('../../assets/css/colors.css');
+.item-editor-container {
+  background-color: var(--background);
+  border: 1px solid var(--grey1);
+  margin: 36px 24px;
+}
+.editor-container {
+  display: flex;
+  padding: 32px;
+}
+
+.item-container {
+  padding: 24px;
+  background-color: var(--white);
+  border: 1px solid var(--grey1);
+}
+
+.item-list {
+  width: 300px;
+}
+
+.item-editor {
+  flex-grow: 1;
+  margin-left: 32px;
+}
+
+.editor-title {
+  background: linear-gradient(
+    90deg,
+    var(--gradient1) 0%,
+    var(--gradient2) 100%
+  );
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.button-container {
+  text-align: left;
+  margin-left: 415px;
+  margin-bottom: 32px;
+}

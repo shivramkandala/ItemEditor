@@ -1,0 +1,13 @@
+@import '../../../../assets/css/colors.css';
+
+.custom-input {
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  height: 48px;
+  border-radius: 2px;
+  border: 1px solid var(--grey1);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}

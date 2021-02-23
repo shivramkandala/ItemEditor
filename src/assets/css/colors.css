@@ -1,0 +1,15 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --gradient1: #d53369;
+  --gradient2: #daae51;
+  --primary-color: #d94879;
+  --background: #fafafa;
+  --grey1: #eeeeee;
+  --grey2: #e9ecef;
+  --grey3: #8e8e8e;
+  --grey4: #d9d9d9;
+  --grey5: #f5f5f5;
+  --formLabel: #495057;
+  --value: #333333;
+}

@@ -1,0 +1,17 @@
+@import '../../../assets/css/colors.css';
+.item-list-container {
+  text-align: left;
+}
+.item {
+  font-size: 15px;
+  padding: 8px 12px;
+  color: var(--grey3);
+  cursor: pointer;
+}
+
+.selected-item {
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--value);
+  background-color: var(--grey2);
+}
