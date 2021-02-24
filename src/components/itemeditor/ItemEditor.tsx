@@ -134,7 +134,7 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
 
   // Current Position gives the required current form details
   // update the past, present and future of the formItemsHistory based on user input
-  // user actions are received from past array
+  // undo actions are received from past array
   // and on each click , an action is performed and update the current state
   const onUndo = () => {
     const lastIndex = state.currentPosition;
@@ -163,6 +163,7 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
             .map((obj: any) => obj.id)
             .indexOf(lastAction.fieldChange.id);
 
+          // isSkip is used for handling special scenario for details see onFieldChange comments
           if (
             updateSelectedItem.fields[fieldIndex].fieldValue ===
               lastAction.fieldChange.value &&
@@ -253,7 +254,7 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
 
   // Current Position gives the required current form details
   // update the past, present and future of the formItemsHistory based on user input
-  // user actions are received from futre array and perfom redo on each click
+  // redo actions are received from future array and perform redo on each click
   const onRedo = () => {
     const currentIndex = state.currentPosition;
     if (currentIndex > -1) {
@@ -276,7 +277,7 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
           const fieldIndex = currentFormItem.fields
             .map((obj: any) => obj.id)
             .indexOf(firstFutureAction.fieldChange.id);
-
+          // isSkip is used for handling special scenario for details see onFieldChange comments
           if (
             updateSelectedItem.fields[fieldIndex].fieldValue ===
               firstFutureAction.fieldChange.value &&
@@ -357,6 +358,10 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
     }
   };
 
+  // Each Selected Item will have past, present and future details
+  // past will hold old events (Undo Actions)
+  // present will hold current event
+  // future will hold all Redo actions
   const onSelectedItem = (value: IFormItem) => {
     const newSelection: IFormItemHistory = {
       selectedItemID: value.id,
@@ -373,6 +378,10 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
     });
   };
 
+  // On Field Change, this method will capture current and previous value of field
+  // One special scenario: user can modified a field and then update a different field
+  // Example: 1st user edits Username and then edits active button.We need to capture 3 events for above scenario
+  // Username present value, active button current and previous value
   const onFieldChange = (
     currentFieldChange: IFieldChange,
     previousFieldChange?: IFieldChange
@@ -398,8 +407,7 @@ const ItemEditor = ({ items, onSave, title }: ItemEditorProps) => {
     const currentSelectedHistory = formItemsHistoryUpdated[index];
 
     if (currentSelectedHistory) {
-      // user can modified a field and then update a different field
-      // below condition allows to capture old field present and add to the list
+      // special scenario
       if (
         currentSelectedHistory.present &&
         currentSelectedHistory.present.fieldChange &&
